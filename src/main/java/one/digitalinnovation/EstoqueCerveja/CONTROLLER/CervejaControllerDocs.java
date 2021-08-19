@@ -8,6 +8,7 @@ import one.digitalinnovation.EstoqueCerveja.DTO.CervejaDTO;
 import one.digitalinnovation.EstoqueCerveja.ENTITY.Cerveja;
 import one.digitalinnovation.EstoqueCerveja.EXCEPTION.CervejaAlreadyRegisteredException;
 import one.digitalinnovation.EstoqueCerveja.EXCEPTION.CervejaNotFoundException;
+import one.digitalinnovation.EstoqueCerveja.SERVICE.CervejaService;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
@@ -21,28 +22,27 @@ public interface CervejaControllerDocs {
             @ApiResponse(code = 201, message = "Sucesso na criação de cerveja"),
             @ApiResponse(code = 400, message = "Campos obrigatórios ausentes ou valor de intervalo de campo incorreto")
     })
-    CervejaDTO criarCerveja(CervejaDTO cervejaDTO) throws CervejaAlreadyRegisteredException;
+
+    CervejaDTO criarCerverja(CervejaDTO cervejaDTO) throws CervejaAlreadyRegisteredException;
 
     @ApiOperation(value = "Retorna cerveja encontrada por um determinado nome")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, message = "Cerveja encontrada com sucesso no sistema")
+            @ApiResponse(code = 200, message = "Cerveja encontrada com sucesso no sistema"),
             @ApiResponse(code = 404, message = "Cerveja com o nome fornecido não encontrada.")
 
     })
 
-    CervejaDTO findByName(@PathVariable String name) throws CervejaNotFoundException;
-
-    @ApiOperation(value = "Retorna a lista de todas as cervejas registrada no sistema"),
+    CervejaDTO findByName(@PathVariable String nome) throws  CervejaNotFoundException;
+    @ApiOperation(value = "Retorna a lista de todas as cervejas registrada no sistema")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Lista de todas as cervejas registrada no sistema")
     })
 
     List<CervejaDTO> listaCervejas();
-
     @ApiOperation(value = "Exclua uma cerveja encontrada por um determinado ID válido")
     @ApiResponses(value = {
             @ApiResponse(code = 204, message = "Sucesso em deletar uma cerveja do sistema"),
-            @ApiResponse(code = 204, = "Cerveja com a identificação fornecida não encontrada.")
+            @ApiResponse(code = 204, message = "Cerveja com a identificação fornecida não encontrada.")
     })
 
     void deleteById(@PathVariable Long id) throws CervejaNotFoundException;
