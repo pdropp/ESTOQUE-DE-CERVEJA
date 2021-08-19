@@ -8,7 +8,6 @@ import one.digitalinnovation.EstoqueCerveja.ENUMS.CervejaType;
 
 import javax.persistence.*;
 
-@Data
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -26,7 +25,7 @@ public class Cerveja {
     private String marca;
 
     @Column (nullable = false)
-    private int Numeromax;
+    private Integer Numeromax;
 
     @Column(nullable = false)
     private int quantidade;
