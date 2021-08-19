@@ -31,7 +31,7 @@ public class CervejaDTO {
 
     @NotNull
     @Max(500)
-    private Integer max;
+    private Integer Numeromax;
 
     @NotNull
     @Max(100)

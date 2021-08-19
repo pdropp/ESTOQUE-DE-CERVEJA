@@ -39,7 +39,7 @@ public class CervejaService {
     }
     //Cria uma nova cerveja
     public  CervejaDTO criarCerveja(CervejaDTO cervejaDTO) throws CervejaAlreadyRegisteredException {
-        verificarSeJaEstaRegistrado(cervejaDTO.getNome());
+        verificarSeJaEstaRegistrado(cervejaDTO.getName());
         Cerveja cerveja = cervejaMapper.INSTANCE.toModel(cervejaDTO);
         Cerveja cervejaSalva = cervejaRepository.save(cerveja);
         return cervejaMapper.toDTO(cervejaSalva);
