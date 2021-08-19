@@ -22,7 +22,7 @@ public class CervejaDTO {
 
     @NotNull
     @Size(min = 1, max = 200)
-    private String nome;
+    private String name;
 
     @NotNull
     @Size(min = 1, max = 200)
