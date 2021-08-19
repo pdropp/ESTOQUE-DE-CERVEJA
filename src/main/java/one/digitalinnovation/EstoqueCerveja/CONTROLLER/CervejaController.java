@@ -3,6 +3,8 @@ package one.digitalinnovation.EstoqueCerveja.CONTROLLER;
 
 import lombok.AllArgsConstructor;
 import one.digitalinnovation.EstoqueCerveja.DTO.CervejaDTO;
+import one.digitalinnovation.EstoqueCerveja.EXCEPTION.CervejaAlreadyRegisteredException;
+import one.digitalinnovation.EstoqueCerveja.EXCEPTION.CervejaNotFoundException;
 import one.digitalinnovation.EstoqueCerveja.SERVICE.CervejaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,18 +16,18 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/cervejas")
 @AllArgsConstructor(onConstructor = @__(@Autowired))
-public class CervejaController {
+public class CervejaController implements CervejaControllerDocs{
 
     private final CervejaService cervejaService;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public CervejaDTO criarCerveja(@RequestMapping @Valid CervejaDTO cervejaDTO) throws CervejaAlreadyRegisteredException{
+    public CervejaDTO criarCerveja(@RequestMapping @Valid CervejaDTO cervejaDTO) throws CervejaAlreadyRegisteredException {
         return CervejaService.criarCerveja(cervejaDTO);
     }
 
     @GetMapping("/{nome}")
-    public CervejaDTO findByName(@PathVariable String nome) throws cervejaNotFoundException {
+    public CervejaDTO findByName(@PathVariable String nome) throws CervejaNotFoundException {
         return CervejaService.findyByName(nome);
     }
 
@@ -37,7 +39,7 @@ public class CervejaController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteById(@PathVariable Long id) throws CervejaNotFoundException{
+    public void deleteById(@PathVariable Long id) throws CervejaNotFoundException {
         CervejaService.deleteById(id);
     }
 
