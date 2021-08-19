@@ -20,7 +20,7 @@ public class Cerveja {
 
 
     @Column(nullable = false, unique = true)
-    private String nome;
+    private String name;
 
     @Column(nullable = false)
     private String marca;
