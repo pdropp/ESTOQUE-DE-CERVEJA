@@ -6,7 +6,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public enum BeerType {
+public enum CervejaType {
 
     LAGER("Lager"),
     MALZBIER("Malzbier"),

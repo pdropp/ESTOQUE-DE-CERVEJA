@@ -4,7 +4,7 @@ package one.digitalinnovation.EstoqueCerveja.ENTITY;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import one.digitalinnovation.EstoqueCerveja.ENUMS.BeerType;
+import one.digitalinnovation.EstoqueCerveja.ENUMS.CervejaType;
 
 import javax.persistence.*;
 
@@ -33,7 +33,7 @@ public class Cerveja {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private BeerType type;
+    private CervejaType type;
 
 
 

@@ -35,6 +35,11 @@ public class CervejaController {
     }
 
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteById(@PathVariable Long id) throws CervejaNotFoundException{
+        CervejaService.deleteById(id);
+    }
 
 
 
